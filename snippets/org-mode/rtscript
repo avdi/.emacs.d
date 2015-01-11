@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: RubyTapas Script
+# key: rtscript
+# --
+#+TITLE: ${1:$$(rubytapas-file-title)}
+#+SETUPFILE: ../defaults.org
+#+DESCRIPTION:
+
+$0
