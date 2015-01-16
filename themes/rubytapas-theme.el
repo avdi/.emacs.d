@@ -133,7 +133,10 @@
  '(org-level-3 ((t (:foreground "#A6E22E"))))
  '(org-level-4 ((t (:foreground "#AE81FF"))))
  '(org-level-5 ((t (:foreground "#E6DB74"))))
- '(org-level-6 ((t (:foreground "#66D9EF")))))
+ '(org-level-6 ((t (:foreground "#66D9EF"))))
+
+ '(erm-syn-errline ((t (:underline "red"))))
+ '(erm-syn-warnline ((t (:underline "yellow")))))
 
 ;;;###autoload
 (when load-file-name
