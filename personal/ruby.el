@@ -27,14 +27,25 @@
 (setq xmpfilter-command-name
       "ruby -S seeing_is_believing --xmpfilter-style")
 
+(require 'rcodetools)
+
+;; Tweak the usual rcodetools comment-dwim hack to also work in
+;; enh-ruby-mode
+(ad-disable-advice 'comment-dwim 'around 'rct-hack)
+(ad-update 'comment-dwim)
+(defadvice comment-dwim (around rct-hack activate)
+  "If comment-dwim is successively called, add => mark."
+  (if (and (member major-mode '(ruby-mode enh-ruby-mode))
+           (eq last-command 'comment-dwim))
+      (insert "=>")
+    ad-do-it))
+
 (eval-after-load 'ruby-mode
   '(progn
-     (require 'rcodetools)
      (define-key ruby-mode-map (kbd "C-c C-c") 'xmp)))
 
 (eval-after-load 'enh-ruby-mode
   '(progn
-     (require 'rcodetools)
      (define-key enh-ruby-mode-map (kbd "C-c C-c") 'xmp)))
 
 (add-to-list 'org-babel-tangle-lang-exts '("ruby" . "rb"))
