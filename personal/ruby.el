@@ -11,7 +11,7 @@
 
 (require 'cl)
 (require 'chruby)
-(chruby "2.1.2")
+(chruby "2.1.3")
 
 ;; rcodetools to eval ruby in-buffer
 (setq rcodetools-dir
@@ -25,7 +25,7 @@
 ;; (setq xmpfilter-command-name
 ;;       "ruby -S xmpfilter --no-warnings --dev --fork --detect-rbtest")
 (setq xmpfilter-command-name
-      "ruby -S seeing_is_believing --xmpfilter-style")
+      "ruby -S seeing_is_believing --xmpfilter-style -d 80")
 
 (require 'rcodetools)
 
@@ -49,3 +49,5 @@
      (define-key enh-ruby-mode-map (kbd "C-c C-c") 'xmp)))
 
 (add-to-list 'org-babel-tangle-lang-exts '("ruby" . "rb"))
+
+(prelude-require-package 'rspec-mode)
