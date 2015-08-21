@@ -1,0 +1,3 @@
+[submodule "vendor/emacs-crystal-mode"]
+	path = vendor/emacs-crystal-mode
+	url = git://github.com/jpellerin/emacs-crystal-mode.git
