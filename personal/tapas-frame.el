@@ -44,4 +44,3 @@
   (interactive)
   (let ((window-id (frame-parameter nil 'outer-window-id)))
     (start-process-shell-command "XScribble" "*XScribble*" (concat "/usr/local/bin/Xscribble " window-id " &"))))
-
