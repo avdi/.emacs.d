@@ -20,3 +20,4 @@ session*
 .cask
 tramp
 /var/pcache
+/server/server
