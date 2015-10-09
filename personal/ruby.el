@@ -13,15 +13,6 @@
 (require 'chruby)
 (chruby "2.1.3")
 
-;; rcodetools to eval ruby in-buffer
-(setq rcodetools-dir
-      (expand-file-name "../../.."
-                        (replace-regexp-in-string
-                         "\n$" ""
-                         (shell-command-to-string
-                          "gem which rcodetools/xmpfilter"))))
-(add-to-list 'load-path
-             rcodetools-dir)
 ;; (setq xmpfilter-command-name
 ;;       "ruby -S xmpfilter --no-warnings --dev --fork --detect-rbtest")
 (setq xmpfilter-command-name
