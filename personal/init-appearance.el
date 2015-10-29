@@ -3,6 +3,8 @@
    molokai-theme
    moe-theme))
 
+(load-theme 'monokai)
+
 (prelude-require-packages '(smart-mode-line))
 
 (setq sml/theme 'respectful)
