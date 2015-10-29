@@ -7,9 +7,14 @@
 (add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
 (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
 (add-to-list 'org-babel-load-languages
-             '("ruby" . enh-ruby-mode))
+             '(ruby . t))
+(add-to-list 'org-src-lang-modes '("ruby" . ruby))
 
-(add-to-list 'org-src-lang-modes '("ruby" . enh-ruby))
+(add-hook 'enh-ruby-mode-hook 'turn-off-smartparens-mode)
+(add-hook 'ruby-mode-hook 'turn-off-smartparens-mode)
+
+
+
 (require 'cl)
 (require 'chruby)
 (chruby "2.1.3")
@@ -39,6 +44,7 @@
 (eval-after-load 'enh-ruby-mode
   '(progn
      (define-key enh-ruby-mode-map (kbd "C-c C-c") 'xmp)))
+(add-hook 'enh-ruby-mode-hook (lambda () (abbrev-mode -1)))
 
 (add-to-list 'org-babel-tangle-lang-exts '("ruby" . "rb"))
 
@@ -66,9 +72,9 @@
   "Alignment rules specific to the ruby mode.
 See the variable `align-rules-list' for more details.")
 
-(add-to-list 'align-perl-modes 'ruby-mode)
-(add-to-list 'align-dq-string-modes 'ruby-mode)
-(add-to-list 'align-sq-string-modes 'ruby-mode)
-(add-to-list 'align-open-comment-modes 'ruby-mode)
+(add-to-list 'align-perl-modes          'ruby-mode)
+(add-to-list 'align-dq-string-modes     'ruby-mode)
+(add-to-list 'align-sq-string-modes     'ruby-mode)
+(add-to-list 'align-open-comment-modes  'ruby-mode)
 (dolist (it ruby-align-rules-list)
   (add-to-list 'align-rules-list it))
