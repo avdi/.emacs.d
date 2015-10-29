@@ -2,3 +2,4 @@
 (prelude-require-package 'htmlize)
 (setq org-startup-indented t)
 (setq org-src-fontify-natively t)
+(setq org-htmlize-output-type 'css)
