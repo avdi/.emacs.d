@@ -1,5 +1,16 @@
-;; chruby to manage ruby verrsions
+;; chruby to manage ruby versions
 (prelude-require-package 'chruby)
+
+;; Monkey-patch chruby to NOT garbage up env vars with warning output
+;; The important part is the redirection: 2>/dev/null
+(eval-after-load "chruby"
+  '(defun chruby-query-version (ruby-bin)
+     "Shell out to Ruby to find out the current engine (ruby, jruby, etc), the
+ruby version, and the gem path"
+     (split-string
+      (shell-command-to-string
+       (concat ruby-bin "/ruby -rubygems -e 'print [(defined?(RUBY_ENGINE) ? RUBY_ENGINE : %[ruby]), (RUBY_VERSION), (Gem.default_dir.inspect)].join(%[##])' 2>/dev/null")) "##")))
+
 (prelude-require-package 'enh-ruby-mode)
 (prelude-require-package 'ruby-mode)
 (prelude-require-package 'ruby-additional)
