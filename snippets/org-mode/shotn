@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: shotn
+# key: shotn
+# binding: direct-keybinding
+# --
+{{{shot($1)}}}$0
