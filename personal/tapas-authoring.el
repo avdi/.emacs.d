@@ -13,8 +13,16 @@
 (defun rubytapas-insert-episode-boilerplate ()
   (insert "rtscript")
   (yas-expand))
- 
-(setq rubytapas-dir (expand-file-name "~/Dropbox/rubytapas"))
+
+(setq rubytapas-dir
+      (cond
+       ((equal (system-name) "CAROLINE")
+         (concat (getenv "USERPROFILE") "\\Dropbox"))
+       ((equal (system-name) "hazel")
+         (expand-file-name "~/Dropbox/rubytapas"))
+        (t
+         (display-warning :warning "Did not recognize system")
+         (expand-file-name "~/Dropbox/rubytapas"))))
 
 (defun rubytapas-auto-insert ()
   (if (equal (string-match
@@ -35,3 +43,4 @@
 (provide 'tapas-authoring)
 
 ;;; tapas-authoring ends here
+(equal "CAROLINE" "CAROLINE")
