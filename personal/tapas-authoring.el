@@ -42,5 +42,4 @@
 
 (provide 'tapas-authoring)
 
-;;; tapas-authoring ends here
-(equal "CAROLINE" "CAROLINE")
+;;; tapas-authoring ends herev
