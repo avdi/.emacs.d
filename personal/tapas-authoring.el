@@ -15,19 +15,19 @@
   (yas-expand))
 
 (setq rubytapas-dir
-      (cond
-       ((equal (system-name) "CAROLINE")
+      (pcase system-name
+        ("CAROLINE"
          (concat (getenv "USERPROFILE") "\\Dropbox"))
-       ((equal (system-name) "hazel")
+        ("hazel"
          (expand-file-name "~/Dropbox/rubytapas"))
-        (t
+        (_
          (display-warning :warning "Did not recognize system")
          (expand-file-name "~/Dropbox/rubytapas"))))
 
 (defun rubytapas-auto-insert ()
   (if (equal (string-match
-              (regexp-quote rubytapas-dir)
-              (buffer-file-name))
+              (regexp-quote (convert-standard-filename rubytapas-dir))
+              (convert-standard-filename (buffer-file-name)))
              0)
       (rubytapas-insert-episode-boilerplate)))
 
