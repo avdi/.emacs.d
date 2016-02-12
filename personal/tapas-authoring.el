@@ -17,7 +17,7 @@
 (setq rubytapas-dir
       (pcase system-name
         ("CAROLINE"
-         (concat (getenv "USERPROFILE") "\\Dropbox"))
+         (concat (getenv "USERPROFILE") "\\Dropbox\\rubytapas"))
         ("hazel"
          (expand-file-name "~/Dropbox/rubytapas"))
         (_
