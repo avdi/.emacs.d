@@ -17,6 +17,7 @@ ruby version, and the gem path"
 
 (add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
 (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
+(require 'ob-ruby)
 (add-to-list 'org-babel-load-languages
              '(ruby . t))
 (add-to-list 'org-src-lang-modes '("ruby" . ruby))
