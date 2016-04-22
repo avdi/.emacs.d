@@ -34,7 +34,7 @@ ruby version, and the gem path"
 ;; (setq xmpfilter-command-name
 ;;       "ruby -S xmpfilter --no-warnings --dev --fork --detect-rbtest")
 (setq xmpfilter-command-name
-      "ruby -S seeing_is_believing --xmpfilter-style -d 80")
+      "ruby -S seeing_is_believing --xmpfilter-style")
 
 (require 'rcodetools)
 
