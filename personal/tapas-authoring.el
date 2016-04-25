@@ -20,6 +20,8 @@
          (concat (getenv "USERPROFILE") "\\Dropbox\\rubytapas"))
         ("hazel"
          (expand-file-name "~/Dropbox/rubytapas"))
+        ("tapasvm2015"
+         (expand-file-name "/media/sf_rubytapas"))
         (_
          (display-warning :warning "Did not recognize system")
          (expand-file-name "~/Dropbox/rubytapas"))))
